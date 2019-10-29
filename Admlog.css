@@ -1,0 +1,29 @@
+.admin{
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    text-align: center;
+}
+.logo{
+    width: 50%;
+    height: 100%;
+    /* background: #aae; */
+    background: wheat;
+    color: #1BAC91;
+    position: absolute;
+}
+/* .fas{
+    font-weight: 0;
+    width: 50px; 
+    height: 50px;
+    position: relative;
+} */
+.admin form{
+    width: 50%;
+    height: 100%;
+    background: #1BAC91;
+    position: absolute;
+    left: 50%;
+}

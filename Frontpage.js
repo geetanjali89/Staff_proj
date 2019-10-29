@@ -1,0 +1,32 @@
+import React, { Component } from 'react' ;
+import './Frontp.css';
+import Loginbox from './Loginbox';
+import { Switch, Route, Link } from 'react-router-dom' ;
+import Menumain from './Menumain';
+
+class Frontpage extends Component {
+    render() {
+        return(
+            <div>
+            <Loginbox />
+            <div className="mainpage container-fluid p-0">
+                <nav className="navbar navbar-light bg-dark">
+                    <img src="./images/logo-image.png" width="60px" height="60px" alt=""/>  
+                    <button type="button" className="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
+                    <Link to ="/main">LOG IN</Link>
+                        <Switch>
+                            <Route path="/main" component={Menumain} />
+                        </Switch> 
+                    </button> 
+                </nav>
+                <img src="./images/2.jpg" className="img-fluid" alt="" />
+                <div className="logo">
+                    <img src="./images/logo-image.png" alt="" className="img"></img>
+                </div>
+            </div>
+        </div>
+        );
+    }
+}
+
+export default Frontpage;
