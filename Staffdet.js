@@ -15,7 +15,6 @@ class Staffdet extends Component {
                     <button className="btn_log btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
                 </div>
             </nav>  
-            {/* <img src="./images/bg.jpg" className="img-fluid"/> */}
             <div className="row m-0">
                 <div className="col-2 d-flex flex-column border-box bd-highlight p-0 mb-0 bg-light text-center"> 
                     <div className="p-2 border bd-highlight">Add User</div>
@@ -74,9 +73,6 @@ class Staffdet extends Component {
                                     <option selected>choose</option>
                                 </select>
                             </div>
-                            {/* <div className="form-group col-md-2">
-                                <input type="text" className="form-control" placeholder="Pincode" />
-                            </div> */}
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-3">

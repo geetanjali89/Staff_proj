@@ -2,28 +2,18 @@ import React, { Component } from 'react';
 import Leftmenu from './Leftmenu' ;
 import './Users.css' ;
 
-export default class User extends Component {
-    constructor(){
-        super();
-        this.state={
-            first_name:'',
-            last_name:'',
-            age:'',
-            dob: '',
-            deparatment:'',
-            address:'',
-            city:'',
-            state:'',
-            contact:'',
-            email:'',
-            pic:''
-        };
+class User extends Component {
+    // constructor(){
+    //     super();
+    //     this.state={
+           
+    //     };
         // handleInput = (e) => {
         //     this.setstate({
         //         [e.target.name]: e.target.value
         //     });
         // }
-    }
+    
     render() {
         return(
             <div>
@@ -69,6 +59,7 @@ export default class User extends Component {
                                 <input type="text" className="form-control" id="inputAddress" placeholder="Address2" />
                             </div>
                         </div>
+                        <br />
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label for="inputCity">City</label>
@@ -80,9 +71,6 @@ export default class User extends Component {
                                     <option selected>choose</option>
                                 </select>
                             </div>
-                            {/* <div className="form-group col-md-2">
-                                <input type="text" className="form-control" placeholder="Pincode" />
-                            </div> */}
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-3">
@@ -103,13 +91,13 @@ export default class User extends Component {
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" />
                             <label className="form-check-label" for="inlineRadio2">Female</label>
                         </div>
-                        <br />
-                        <br />
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label for="exampleFormControlFile1">Picture</label>
                             <input type="file" className="form-gorup-file" id="exampleFormControlFile1" />
+                        </div> */}
                         </div>
-                        </div>
+            
+                        <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Add</button>
                     </form> 
                 </div>
             </div>           
@@ -117,3 +105,5 @@ export default class User extends Component {
         );
     }
 }
+
+export default User;

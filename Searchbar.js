@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import Leftmenu from './Leftmenu' ;
 import './Users.css' ;
+import Searchbutton from './Searchbutton';
+import { Route } from 'react-router-dom';
 
 class Searchbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            num: this.props.num
+        };
+    }
     render() {
+        // console.log(this.props);
         return(
             <div>
                 <Leftmenu />
@@ -34,9 +43,15 @@ class Searchbar extends Component {
                                 <input type="text" className="form-control" placeholder="DoB" />
                             </div>
                         </div>
-                        <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                        <button 
+                            onClick={() => this.props.history.push("/search/sbutton")}
+                        className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                     </form>    
-                </div>    
+                    <br /> 
+                </div>  
+                <Route path="/search/sbutton" render={(props) =>
+                            < Searchbutton {...props} />
+                        } /> 
                 </div>               
             </div>
         );

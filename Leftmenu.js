@@ -10,15 +10,15 @@ class Leftmenu extends Component {
             <div>
                 <Navbar /> 
                 <div className="container-fluid p-0"> 
-                    <div className="leftlist shadow p-0 mb-0 rounded">
+                    <div className="leftlist shadow p-0 mb-0">
                         <div>
                             <Link to ="/main">
-                                <i class="fas fa-home"></i>
+                                <i class="fas fa-home "></i>
                             </Link>
                             <Switch>
                                 <Route path="/main" component={Menumain} />
                             </Switch> 
-                        </div>
+                        </div> 
                         <ul className="list-group list-group-item-dark p-0 m-0">
                             <li className="list-group-item content-justify-center">
                                 <Link to ="/user">Add User</Link>
@@ -28,10 +28,9 @@ class Leftmenu extends Component {
                             </li>
                             <li className="list-group-item">
                                 <Link to ="/search">Details</Link>
-                            </li>
-                            
+                            </li> 
                         </ul>  
-                        <button className="addbtn btn-block btn-lg btn-outline-info my-2 my-sm-0" type="submit">Add</button>
+                        {/* <button className="addbtn btn-block btn-lg btn-outline-info my-2 my-sm-0" type="submit">Add</button> */}
                     </div>
                 </div>
             </div>

@@ -1,11 +1,16 @@
 import React, { Component } from 'react' ;
 import './Modbox.css';
-import Frontpage from './Frontpage' ;
-import Menumain from './Menumain' ;
+import Frontpage from './Frontpage';
 import cookies from 'react-cookies' ;
-import { Switch, Route } from 'react-router-dom' ;
+import Menumain from './Menumain';
+// import Registerform from './Registerform' ;
+import WOW from 'wowjs' ;
+import { Switch, Route, Link } from 'react-router-dom' ;
 
 class Loginbox extends Component {
+    componentDidMount(){
+        new WOW.WOW().init();
+    }
     constructor() {
         super();
         this.state = {
@@ -13,6 +18,9 @@ class Loginbox extends Component {
             password: ''
         };
     }
+    handleClose = () => {       //
+        console.log("close")
+     }
     handleInput = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -38,7 +46,7 @@ class Loginbox extends Component {
             if(res.access_token){
                 alert("Loggedin successfull");
                 cookies.save('access_token', res.access_token);
-                this.props.history.push("/main");
+                this.props.history.push("/main");               
             }else{
                 alert(res.content[0]);
             }
@@ -49,34 +57,52 @@ class Loginbox extends Component {
     }
     render(){
         return(
-            <div>
-                <Frontpage />
+        <div>
+             <Frontpage />
+            <div className="modal-content modbox p-3 wow fadeInDown bg-light">
                 <div className="member">
-                        <i className="fas fa-users"></i>
-                        <h4>LOGIN</h4>
-                    </div>
-                <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
-                     name="email"
-                     onChange={(e) => this.handleInput(e)} />                    
+                    <i className="fas fa-users"></i>
+                    <button type="button" className="close" data-dismiss="modal-content" aria-label="Close" 
+                        onClick ={() => this.handleClose()}>&times;
+                    </button> 
+                    <h4>LOGIN</h4>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                     name="password"
-                     onChange={(e) => this.handleInput(e)} />
+            <div className="Modal-body">
+                <label for="exampleInputEmail1">Username or Email ID</label>
+                <div className="input-group">
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="inputGroupPrepend2">
+                    <i className="fas fa-envelope"></i></span>
                 </div>
-                    <button type="submit" class="btn btn-primary"  onClick={() => this.login()}
-                    >Submit
-                        <Switch>
-                            <Route path="/main" component={Menumain} />
-                        </Switch>
-                    </button>
-                </form>
+                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Username/Email ID"
+                    name="email"
+                        onChange={(e) => this.handleInput(e)} />   
+                </div>                         
+                <label for="exampleInputPassword1">Password</label>
+                <div className="input-group">
+                <div className="input-group-prepend">
+                   <span className="input-group-text" id="inputGroupPrepend2">
+                   <i class="fas fa-lock"></i>
+                   </span>
+                </div>
+                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"
+                    name="password"
+                       onChange={(e) => this.handleInput(e)} />
+                </div>
+                <br />
+                <button type="submit" className="btn btn-block btn-outline-primary" 
+                    onClick={() => this.login()} > SIGN IN
+                    <Switch>
+                        <Route path="/main" component={Menumain} />
+                    </Switch>
+                </button>
             </div>
-          
+                <br />
+                <p className="text-center">
+                    <Link to="/register">Create Account</Link> 
+                </p>
+            </div>
+        </div>
         );
     }
 }

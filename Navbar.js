@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Frontpage from './Frontpage';
-import { Switch, Route, Link } from 'react-router-dom';
+// import Frontpage from './Frontpage';
+import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
     render() {
@@ -12,7 +12,9 @@ export default class Navbar extends Component {
                     <a className="nav-link text-white text-bold">ATTENDENCE</a>
                     <a className="nav-link text-white text-bold">SALARY</a>
                 <button className="btn_log btn-outline-info my-2 my-sm-0" type="submit">
-                    <Link to ="/">Logout</Link>
+                    <Link to ="/">
+                        Logout
+                        </Link>
                 </button>
                 </div>
             </nav> 

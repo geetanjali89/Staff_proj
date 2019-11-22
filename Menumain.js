@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import './Menu.css' ;
-import Frontpage from './Frontpage' ;
-import Attendence from './Attendence';
 import Leftmenu from './Leftmenu';
-import {Switch, Route, Link} from 'react-router-dom' ;
 import Salary from './Salary';
+import Attendence from './Attendence';
+import WOW from 'wowjs' ;
+import {Switch, Route, Link} from 'react-router-dom' ;
 
 class Menumain extends Component {
+        componentDidMount(){
+        new WOW.WOW().init();
+    }
+    // logout() {
+    //     console.log('entere!!!');
+    // }
     render() {
         return(
-            <div className="container-fluid p-0">
+            <div className="container-fluid p-0 position-fixed">
                 <nav className="navbar navbar-expand-lg justify-content-start bg-dark">
                 <div className="collapse navbar-collapse">
                     <img src="./images/logo-image.png" width="60px" height="60px" alt=""/>
@@ -31,13 +37,14 @@ class Menumain extends Component {
                             <Route path="/salary" component={Salary} />
                         </Switch>
                     </a>
-                    <button className="btn_log btn-outline-info my-2 my-sm-0" type="submit">
-                        <Link to ="/">Logout</Link>
+                    <button className="btn_log btn-outline-info my-2 my-sm-0" type="submit" >
+                          {/* onClick={() => this.logout()}> Logout */}
+                         <Link to ="/">Logout</Link> 
                     </button>
                 </div>
                 </nav> 
                     <img src="./images/2.jpg" className="img-fluid" alt="Responsive image" />
-                <div className="logo">
+                <div className="logo wow zoomIn">
                     <img src="./images/logo-image.png" alt="" className="img"></img>
                 </div>
             </div>
